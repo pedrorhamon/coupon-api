@@ -67,9 +67,10 @@ public class Coupon {
     }
 
     public CouponStatus getStatus() {
-        if (deleted) return CouponStatus.DELETED;
-        if (published) return CouponStatus.ACTIVE;
-        return CouponStatus.INACTIVE;
+        return deleted ? CouponStatus.DELETED : (published ? CouponStatus.ACTIVE : CouponStatus.INACTIVE);
+//        if (deleted) return CouponStatus.DELETED;
+//        if (published) return CouponStatus.ACTIVE;
+//        return CouponStatus.INACTIVE;
     }
 
     private static String sanitize(String code) {
